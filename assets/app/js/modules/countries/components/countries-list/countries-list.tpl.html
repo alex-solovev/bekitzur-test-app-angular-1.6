@@ -1,0 +1,17 @@
+<md-content layout="row" layout-align="center center">
+    <div flex-gt-sm="60" flex="100" layout="row" layout-margin>
+        <md-list flex md-whiteframe="5">
+            <md-list-item ng-repeat="country in $ctrl.countries"
+                          ui-sref="country({ countryName: country.title, countryId: country.countryId })"
+                          ng-click="null">
+
+                <div class="md-list-item-text" layout="row" layout-align="start center">
+                    <h3 md-inset>{{ country.title }}</h3>
+                </div>
+
+                <md-divider></md-divider>
+
+            </md-list-item>
+        </md-list>
+    </div>
+</md-content>

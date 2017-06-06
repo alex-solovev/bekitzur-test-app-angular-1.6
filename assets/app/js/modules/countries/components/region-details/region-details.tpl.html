@@ -1,0 +1,64 @@
+<md-content layout="row" layout-align="center center" ng-cloak>
+    <div flex-gt-sm="60" flex="100" layout="column" layout-margin>
+        <md-card flex>
+            <md-card-title>
+                <md-card-title-text flex="60" layout-margin>
+                    <span class="md-headline">{{ $ctrl.region.regionName }}</span>
+
+                    <md-list flex>
+                        <md-list-item ng-if="$ctrl.region.populationLabel" class="md-1-line">
+                            <div class="md-list-item-text">
+                                <b>Population: </b>
+                                <span>{{ $ctrl.region.populationLabel.value }}</span>
+                            </div>
+                            <md-divider></md-divider>
+                        </md-list-item>
+                        <md-list-item ng-if="$ctrl.region.officialLanguageLabel" class="md-1-line">
+                            <div class="md-list-item-text">
+                                <b>Official language: </b>
+                                <span>{{ $ctrl.region.officialLanguageLabel.value }}</span>
+                            </div>
+                            <md-divider></md-divider>
+                        </md-list-item>
+                        <md-list-item ng-if="$ctrl.region.websiteLabel" class="md-1-line">
+                            <div class="md-list-item-text">
+                                <a href="{{ $ctrl.region.websiteLabel.value }}" target="_blank">{{ $ctrl.region.websiteLabel.value }}</a>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+
+                </md-card-title-text>
+
+                <md-card-title-media flex="30" flex-offset="10" class="md-padding">
+                    <img ng-src="{{ $ctrl.region.coatOfArmsLabel.value }}" alt="">
+                </md-card-title-media>
+            </md-card-title>
+        </md-card>
+
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <b class="md-headline">Cities</b>
+                </md-card-title-text>
+            </md-card-title>
+
+            <div ng-if="!$ctrl.cities" layout="row" layout-sm="column" layout-align="space-around" class="md-padding">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+
+            <div ng-if="!$ctrl.cities.length" class="md-padding">
+                <span>No cities found</span>
+            </div>
+
+            <md-list ng-if="$ctrl.cities.length" flex>
+                <md-list-item class="md-1-line" ng-repeat="city in $ctrl.cities">
+                    <div class="md-list-item-text">
+                        <span>{{ city.cityLabel.value }}</span>
+                    </div>
+
+                    <md-divider></md-divider>
+                </md-list-item>
+            </md-list>
+        </md-card>
+    </div>
+</md-content>

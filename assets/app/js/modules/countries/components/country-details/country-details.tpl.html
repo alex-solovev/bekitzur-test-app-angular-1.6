@@ -1,0 +1,135 @@
+<div layout-gt-md="row" layout="column" layout-margin ng-cloak>
+    <div hide show-gt-md flex="100">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <b class="md-headline">Regions</b>
+                </md-card-title-text>
+            </md-card-title>
+
+            <div ng-if="!$ctrl.regions" layout="row" layout-sm="column" layout-align="space-around" class="md-padding">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+
+            <div ng-if="!$ctrl.regions.length" class="md-padding">
+                <span>No regions found</span>
+            </div>
+
+            <md-list ng-if="$ctrl.regions.length" flex>
+                <md-list-item class="md-1-line"
+                              ng-repeat="region in $ctrl.regions"
+                              ui-sref="region({ regionName: region.regionsLabel.value, countryName: $ctrl.country.countryLabel.value, regionId: region.regions.value })" ng-click="null">
+                    <div class="md-list-item-text">
+                        <span>{{ region.regionsLabel.value }}</span>
+                    </div>
+
+                    <md-divider></md-divider>
+                </md-list-item>
+            </md-list>
+        </md-card>
+    </div>
+
+    <div flex-gt-md="35" flex="100">
+
+        <md-card>
+            <md-card-title>
+                <md-card-title-text flex="60" layout-margin>
+                    <span class="md-headline">{{ $ctrl.country.countryLabel.value }}</span>
+
+                    <md-list flex>
+                        <md-list-item class="md-1-line">
+                            <div class="md-list-item-text">
+                                <b>Capital: </b>
+                                <span>{{ $ctrl.country.capitalLabel.value }}</span>
+                            </div>
+                            <md-divider></md-divider>
+                        </md-list-item>
+                        <md-list-item class="md-1-line">
+                            <div class="md-list-item-text">
+                                <b>Population: </b>
+                                <span>{{ $ctrl.country.populationLabel.value }}</span>
+                            </div>
+                            <md-divider></md-divider>
+                        </md-list-item>
+                        <md-list-item ng-if="$ctrl.country.officialLanguageLabel" class="md-1-line">
+                            <div class="md-list-item-text">
+                                <b>Official language: </b>
+                                <span>{{ $ctrl.country.officialLanguageLabel.value }}</span>
+                            </div>
+                            <md-divider></md-divider>
+                        </md-list-item>
+                        <md-list-item ng-if="$ctrl.country.websiteLabel" class="md-1-line">
+                            <div class="md-list-item-text">
+                                <a href="{{ $ctrl.country.websiteLabel.value }}" target="_blank">{{ $ctrl.country.websiteLabel.value }}</a>
+                            </div>
+                        </md-list-item>
+                    </md-list>
+
+                </md-card-title-text>
+
+                <md-card-title-media flex="40" class="md-padding">
+                    <img md-whiteframe="4" ng-src="{{ $ctrl.country.flagImageLabel.value }}">
+                    <br>
+                    <img ng-src="{{ $ctrl.country.coatOfArmsLabel.value }}" alt="">
+                </md-card-title-media>
+            </md-card-title>
+        </md-card>
+
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <b class="md-headline">Neighborhood countries</b>
+                </md-card-title-text>
+            </md-card-title>
+
+            <div ng-if="!$ctrl.siblings" layout="row" layout-sm="column" layout-align="space-around" class="md-padding">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+
+            <div ng-if="!$ctrl.siblings.length" class="md-padding">
+                <span>No neighborhood countries found</span>
+            </div>
+
+            <md-list ng-if="$ctrl.siblings.length" flex>
+                <md-list-item class="md-1-line" ng-repeat="sibling in $ctrl.siblings" ui-sref="country({ countryName: sibling.siblingsLabel.value, countryId: sibling.siblings.value })" ng-click="null">
+                    <div class="md-list-item-text">
+                        <span>{{ sibling.siblingsLabel.value }}</span>
+                    </div>
+
+                    <md-divider></md-divider>
+                </md-list-item>
+            </md-list>
+        </md-card>
+
+    </div>
+
+    <div hide show-xs show-sm show-md flex="100">
+        <md-card>
+            <md-card-title>
+                <md-card-title-text>
+                    <b class="md-headline">Regions</b>
+                </md-card-title-text>
+            </md-card-title>
+
+            <div ng-if="!$ctrl.regions" layout="row" layout-sm="column" layout-align="space-around" class="md-padding">
+                <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+            </div>
+
+            <div ng-if="!$ctrl.regions.length" class="md-padding">
+                <span>No regions found</span>
+            </div>
+
+            <md-list ng-if="$ctrl.regions.length" flex>
+                <md-list-item class="md-1-line"
+                              ng-repeat="region in $ctrl.regions"
+                              ui-sref="region({ regionName: region.regionsLabel.value, countryName: $ctrl.country.countryLabel.value, regionId: region.regions.value })" ng-click="null">
+                    <div class="md-list-item-text">
+                        <span>{{ region.regionsLabel.value }}</span>
+                    </div>
+
+                    <md-divider></md-divider>
+                </md-list-item>
+            </md-list>
+        </md-card>
+    </div>
+</div>
